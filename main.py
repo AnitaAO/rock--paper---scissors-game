@@ -1,40 +1,34 @@
-from random import random
+import random
+
+play_options = [
+    "rock", 
+    "paper", 
+    "scissors"]
 
 
-print("let's play Rock Paper Scissors \n")
-"choose R for rock \n"
-"choose P for paper \n"
-"choose S for scissors \n"
-while True:
-    game_options=["R", "S", "P"]
-    computer = random.choices(game_options)
-    player = None
-    
-    while player not in game_options:
-        
-        player=input("what do you choose: ")
-        if player not in game_options:
-            print("invalid input, try again")
-        else:
-            print("You", player)
-            print("computer", computer)
-            if player == computer:
-                print("its a tie")
-                continue
-            elif player=="R":
-                if computer =="S":
-                 print(" Rock breaks scissors, you win")
-                if computer=="P":
-                    print("paper covers rock, you lose")
-            elif player=="S":
-                if computer=="P":
-                    print("scissors cuts paper, you win")
-                if computer =="R":
-                    print("rock breaks scissors, you lose")
-            elif player =="P":
-                if computer=="S":
-                    print("Scissors cuts paper, you lose")
-                if computer=="R":
-                        print("paper covers rock, you win")
-            break
-                    
+# def user_play_rps(play):
+user_play_rps = input("Type your play ['rock', 'paper', 'scissors']:")
+
+# def cpu_play_rps():
+cpu_play_rps = random.choice(play_options)
+print(f"cpu played {cpu_play_rps} and you played {user_play_rps}")
+
+
+# def battle():
+if user_play_rps == cpu_play_rps:
+    print(f"Both players selected {user_play_rps}. It's a tie!")
+elif user_play_rps == "rock":
+    if cpu_play_rps == "scissors":
+        print("Rock beats scissors! You win!")
+    else:
+        print("Paper beats rock! You lose.")
+elif user_play_rps == "paper":
+    if cpu_play_rps == "rock":
+        print("Paper beats rock! You win!")
+    else:
+        print("Scissors beats paper! You lose.")
+elif user_play_rps == "scissors":
+    if cpu_play_rps == "paper":
+        print("Scissors beats paper! You win!")
+    else:
+        print("Rock beats scissors! You lose.")
